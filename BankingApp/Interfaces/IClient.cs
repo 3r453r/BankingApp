@@ -16,15 +16,15 @@ namespace BankingApp.Interfaces
 
         DateTime Created { get; }
 
-        DateTime Deleted { get; }
+        DateTime? Deleted { get; }
 
         void OpenAccount(IAccount account);
 
-        void CloseAccount(string accountNumber);
+        void CloseAccount(IAccount account);
 
-        void AddCard(IPaymentCard card);
+        void AddCard(IAccount account, IPaymentCard card);
 
-        void RemoveCard(string cardNumber);
+        void RemoveCard(IAccount account, IPaymentCard card);
 
         void Delete();
     }

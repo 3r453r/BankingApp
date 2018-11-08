@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Transactions;
 
 namespace BankingApp.Classes
 {
@@ -11,29 +12,46 @@ namespace BankingApp.Classes
     {
         protected List<IAccount> Accounts { get; set; }
 
-        protected List<IPaymentCard> PaymentCards { get; set; }
-
         public bool Active { get; protected set; }
 
         public long ClientId { get; protected set; }
 
         public DateTime Created { get; protected set; }
 
-        public DateTime Deleted { get; protected set; }
+        public DateTime? Deleted { get; protected set; }
 
-        public abstract void AddCard(IPaymentCard card);       
+        public Client(IClient client)
+        {
+            Accounts = client.GetAccounts().ToList();
+            Created = client.Created;
+            Deleted = client.Deleted;
+            Active = client.Active;
+            ClientId = client.ClientId;
+        }
+
+        public void AddCard(IAccount account, IPaymentCard card)
+        {
+
+        }
+
+        public void RemoveCard(IAccount account, IPaymentCard card) => throw new NotImplementedException();
 
         public void Delete()
         {
-            foreach (var account in Accounts)
+            using (var scope = new TransactionScope())
             {
-                CloseAccount(account.AccountNumber);
+                foreach (var account in Accounts)
+                {
+                    CloseAccount(account);
+                }
+                scope.Complete();
             }
+               
         }
 
-        public abstract IEnumerable<IAccount> GetAccounts();
+        public IEnumerable<IAccount> GetAccounts() => Accounts;
 
-        public abstract IEnumerable<IPaymentCard> GetPaymentCards();
+        public IEnumerable<IPaymentCard> GetPaymentCards() => Accounts.SelectMany(a => a.GetCards());
 
         public void OpenAccount(IAccount account)
         {
@@ -41,23 +59,21 @@ namespace BankingApp.Classes
             Accounts.Add(account);
         }
 
-        public void CloseAccount(string accountNumber)
+        public void CloseAccount(IAccount account)
         {
             try
             {
-                Accounts.Single(a => a.AccountNumber == accountNumber).RemoveOwner(this);
+                account.RemoveOwner(this);
             }
-            catch(InvalidOperationException e)
+            catch (InvalidOperationException)
             {
-                throw new ArgumentException($"Account {accountNumber} not found or duplicated for client {ClientId}");
+                throw new ArgumentException($"Account {account.AccountNumber} not found or duplicated for client {ClientId}");
             }
         }
 
-        public abstract void RemoveCard(string cardNumber);
-
         public override bool Equals(object obj)
         {
-            return obj != null && obj.GetType().BaseType.Equals(typeof(Client))
+            return obj != null && obj is Client
                 && ClientId == (obj as Client).ClientId;
         }
 

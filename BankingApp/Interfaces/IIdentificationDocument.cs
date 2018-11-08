@@ -2,5 +2,6 @@
 {
     public interface IIdentificationDocument
     {
+        string IdentificationDocumentId { get;}
     }
 }

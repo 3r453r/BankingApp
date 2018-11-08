@@ -14,13 +14,16 @@ namespace BankingApp.Classes
         #endregion
 
         #region Constructors
-        public CheckingAccount(string accountNumber, List<IClient> owners)
+        public CheckingAccount(string accountNumber, List<IClient> owners, DateTime opened, DateTime? closed)
         {
             AccountNumber = accountNumber;
             Owners = owners;
+            Opened = opened;
+            Closed = closed;
+            Virtual = false;
         }
 
-        public CheckingAccount(string accountNumber) : this(accountNumber, new List<IClient>()) { }
+        public CheckingAccount(string accountNumber, DateTime opened, DateTime? closed) : this(accountNumber, new List<IClient>(), opened, closed) { }
         #endregion
 
         #region Properties

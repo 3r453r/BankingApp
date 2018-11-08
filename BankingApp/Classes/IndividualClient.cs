@@ -1,4 +1,5 @@
 ﻿using BankingApp.Interfaces;
+using BankingApp.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +16,18 @@ namespace BankingApp.Classes
         #endregion
 
         #region Constructors
-        public IndividualClient(IEnumerable<IAccount> accounts, IEnumerable<IPaymentCard> paymentCards, IEnumerable<IIdentificationDocument> documents, long id)
+        public IndividualClient(IClient client, IPerson person) : base(client)
         {
-            Accounts = accounts.ToList();
-            PaymentCards = paymentCards.ToList();
-            Created = DateTime.Now;
-            Active = true;
-            ClientId = id;
-        }
+            Pesel = person.Pesel;
+            Nip = person.Nip;
+            Documents = person.GetDocuments();
+            FirstName = person.FirstName;
+            LastName = person.LastName;
+            DateOfBirth = person.DateOfBirth;
+            Deceased = person.Deceased;
 
-        public IndividualClient(long id) : this(new List<IAccount>(), new List<IPaymentCard>(), new List<IIdentificationDocument>(), id) { }
+            ClientRepository.Add(this);
+        }
         #endregion
 
         #region Properties
@@ -58,21 +61,6 @@ namespace BankingApp.Classes
         }
 
         public override void AddCard(IPaymentCard card)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override IEnumerable<IAccount> GetAccounts()
-        {
-            return Accounts;
-        }
-
-        public override IEnumerable<IPaymentCard> GetPaymentCards()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void RemoveCard(string cardNubmer)
         {
             throw new NotImplementedException();
         }

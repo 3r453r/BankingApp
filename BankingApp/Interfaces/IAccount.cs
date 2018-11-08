@@ -7,16 +7,26 @@ namespace BankingApp.Interfaces
     {
         long AccountId { get; }
 
+        decimal Balance { get; }
+
+        bool Virtual { get; }
+
         string AccountNumber { get; set; }
 
         DateTime Opened { get; }
 
-        DateTime Closed { get; }
+        DateTime? Closed { get; }
 
         IEnumerable<IClient> GetOwners();
 
-        void AddOwner(IClient client);
+        void AddOwner(IClient owner);
 
-        void RemoveOwner(IClient client);
+        void RemoveOwner(IClient owner);
+
+        IEnumerable<IPaymentCard> GetCards();
+
+        void AddCard(IPaymentCard card);
+
+        void RemoveCard(IPaymentCard card);      
     }
 }

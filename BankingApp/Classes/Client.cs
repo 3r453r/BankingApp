@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Transactions;
 
 namespace BankingApp.Classes
 {
     public abstract class Client : IClient
     {
         protected List<IAccount> Accounts { get; set; }
-
-        protected List<IPaymentCard> PaymentCards { get; set; }
 
         public bool Active { get; protected set; }
 
@@ -25,10 +24,15 @@ namespace BankingApp.Classes
 
         public void Delete()
         {
-            foreach (var account in Accounts)
+            using (var scope = new TransactionScope())
             {
-                CloseAccount(account.AccountNumber);
+                foreach (var account in Accounts)
+                {
+                    CloseAccount(account.AccountNumber);
+                }
+                scope.Complete();
             }
+                
         }
 
         public abstract IEnumerable<IAccount> GetAccounts();
@@ -45,9 +49,9 @@ namespace BankingApp.Classes
         {
             try
             {
-                Accounts.Single(a => a.AccountNumber == accountNumber).RemoveOwner(this);
+                Accounts.Single(a => a.AccountNumber == accountNumber).RemoveOwner(this.ClientId);
             }
-            catch(InvalidOperationException e)
+            catch (InvalidOperationException)
             {
                 throw new ArgumentException($"Account {accountNumber} not found or duplicated for client {ClientId}");
             }

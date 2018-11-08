@@ -1,4 +1,5 @@
 ﻿using BankingApp.Interfaces;
+using BankingApp.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +16,23 @@ namespace BankingApp.Classes
         #endregion
 
         #region Constructors
-        public IndividualClient(IEnumerable<IAccount> accounts, IEnumerable<IPaymentCard> paymentCards, IEnumerable<IIdentificationDocument> documents, long id)
+        public IndividualClient(IClient client, IPerson person)
         {
-            Accounts = accounts.ToList();
-            PaymentCards = paymentCards.ToList();
-            Created = DateTime.Now;
-            Active = true;
-            ClientId = id;
-        }
+            Accounts = client.GetAccounts().ToList();
+            Created = client.Created;
+            Deleted = client.Deleted;
+            Active = client.Active;
+            ClientId = client.ClientId;
+            Pesel = person.Pesel;
+            Nip = person.Nip;
+            Documents = person.GetDocuments();
+            FirstName = person.FirstName;
+            LastName = person.LastName;
+            DateOfBirth = person.DateOfBirth;
+            Deceased = person.Deceased;
 
-        public IndividualClient(long id) : this(new List<IAccount>(), new List<IPaymentCard>(), new List<IIdentificationDocument>(), id) { }
+            ClientRepository.Add(this);
+        }
         #endregion
 
         #region Properties

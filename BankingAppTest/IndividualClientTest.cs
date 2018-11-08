@@ -1,21 +1,53 @@
 using Xunit;
 using BankingApp.Classes;
 using BankingApp.Interfaces;
+using System;
+using Moq;
+using BankingApp.Repositories;
 
 namespace BankingAppTest
 {
     public class IndividualClientTest
     {
+        private static Mock<IClient> clientMock = new Mock<IClient>();
+        private static Mock<IPerson> personMock = new Mock<IPerson>();
+
+        private IndividualClient factClient = ClientRepository.HasClient(1) ?
+            ClientRepository.GetClient(1) as IndividualClient : new IndividualClient(clientProperties(clientMock, true, 1, DateTime.Now, null).Object, personProperties(personMock).Object);
+
+        private static Mock<IClient> clientProperties(Mock<IClient> mock, bool active, long id, DateTime created, DateTime? deleted)
+        {
+            return mock.SetupAllProperties()
+            //.SetupProperty(m => m.Active, active)
+            //.SetupProperty(m => m.ClientId, id)
+            //.SetupProperty(m => m.Created, created)
+            //.SetupProperty(m => m.Deleted, deleted)
+            ;
+        }
+
+        private static Mock<IPerson> personProperties(Mock<IPerson> mock)
+        {
+            return mock.SetupAllProperties()           
+                //.SetupProperty(m => m.DateOfBirth, DateTime.Parse("2000-03-26"))
+                //.SetupProperty(m => m.Deceased, false)
+                //.SetupProperty(m => m.FirstName, "Adam")
+                //.SetupProperty(m => m.LastName, "Spadam")
+                //.SetupProperty(m => m.Nip, "908134531")
+                //.SetupProperty(m => m.PersonId, 1)
+                //.SetupProperty(m => m.Pesel, "67032813467")
+                ;
+        }
+
         [Fact]
         public void IsClient()
         {
-            Assert.True(new IndividualClient(1) is IClient);
+            Assert.True(factClient is IClient);
         }
 
         [Fact]
         public void IsPerson()
         {
-            Assert.True(new IndividualClient(1) is IPerson);
+            Assert.True(factClient is IPerson);
         }
 
         [Theory]
@@ -24,8 +56,8 @@ namespace BankingAppTest
         [InlineData(2, 1)]
         public void IdIsUsedForEquality(long id1, long id2)
         {
-            var c1 = new IndividualClient(id1);
-            var c2 = new IndividualClient(id2);
+            var c1 = ClientRepository.HasClient(id1) ? ClientRepository.GetClient(id1) : new IndividualClient(clientProperties(clientMock, true, id1, DateTime.Now, null).Object, personProperties(personMock).Object);
+            var c2 = ClientRepository.HasClient(id2) ? ClientRepository.GetClient(id2) : new IndividualClient(clientProperties(clientMock, true, id2, DateTime.Now, null).Object, personProperties(personMock).Object);
             if (c1.ClientId == c2.ClientId)
             {
                 Assert.True(c1 == c2);
@@ -41,39 +73,35 @@ namespace BankingAppTest
         [Fact]
         public void OpenedAccountIsAddedToAccounts()
         {
-            var client = new IndividualClient(1);
-            var account = new CheckingAccount("1");
-            client.OpenAccount(account);
-            Assert.Contains(account, client.GetAccounts());
+            var account = new CheckingAccount("1", DateTime.Now, null);
+            factClient.OpenAccount(account);
+            Assert.Contains(account, factClient.GetAccounts());
         }
 
         [Fact]
         public void OpenedAccountHasClientAsOwner()
         {
-            var client = new IndividualClient(1);
-            var account = new CheckingAccount("1");
-            client.OpenAccount(account);
-            Assert.Contains(client, account.GetOwners());
+            var account = new CheckingAccount("1", DateTime.Now, null);
+            factClient.OpenAccount(account);
+            Assert.Contains(factClient, account.GetOwners());
         }
 
         [Fact]
         public void ClosedAccountIsRemovedFromAccounts()
         {
-            var client = new IndividualClient(1);
-            var account = new CheckingAccount("1");
-            client.OpenAccount(account);
-            client.CloseAccount(account.AccountNumber);
-            Assert.DoesNotContain(account, client.GetAccounts());
+            var account = new CheckingAccount("1", DateTime.Now, null);
+            factClient.OpenAccount(account);
+            factClient.CloseAccount(account.AccountNumber);
+            Assert.DoesNotContain(account, factClient.GetAccounts());
         }
 
         [Fact]
         public void ClosedAccountDoesntHaveClientAsOwner()
         {
-            var client = new IndividualClient(1);
-            var account = new CheckingAccount("1");
-            client.OpenAccount(account);
-            client.CloseAccount(account.AccountNumber);
-            Assert.DoesNotContain(client, account.GetOwners());
+            var account = new CheckingAccount("1", DateTime.Now, null);
+            factClient.OpenAccount(account);
+            factClient.CloseAccount(account.AccountNumber);
+            Assert.DoesNotContain(factClient, account.GetOwners());
         }
     }
 }

@@ -20,13 +20,15 @@ namespace BankingApp.Classes
 
         public DateTime? Deleted { get; protected set; }
 
-        public Client(IClient client)
+        public Client(IClient client, IRepository<IClient> repository)
         {
             Accounts = client.GetAccounts().ToList();
             Created = client.Created;
             Deleted = client.Deleted;
             Active = client.Active;
             ClientId = client.ClientId;
+
+            repository.Add(client);
         }
 
         public void AddCard(IAccount account, IPaymentCard card)

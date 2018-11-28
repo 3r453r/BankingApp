@@ -16,7 +16,7 @@ namespace BankingApp.Classes
         #endregion
 
         #region Constructors
-        public IndividualClient(IClient client, IPerson person) : base(client)
+        public IndividualClient(IClient client, IPerson person, IRepository<IClient> repository) : base(client, repository)
         {
             Pesel = person.Pesel;
             Nip = person.Nip;
@@ -25,8 +25,6 @@ namespace BankingApp.Classes
             LastName = person.LastName;
             DateOfBirth = person.DateOfBirth;
             Deceased = person.Deceased;
-
-            ClientRepository.Add(this);
         }
         #endregion
 
@@ -56,11 +54,6 @@ namespace BankingApp.Classes
         }
 
         public void AddDocument(IIdentificationDocument document)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void AddCard(IPaymentCard card)
         {
             throw new NotImplementedException();
         }

@@ -58,7 +58,7 @@ namespace BankingAppTest
         {
             var account = new CheckingAccount("1", DateTime.Now, null);
             var client = NewClient;
-            client.AddCard(account, )
+            client.AddCard(account,)
         }
     }
 }

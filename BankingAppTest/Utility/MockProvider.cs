@@ -35,13 +35,13 @@ namespace BankingAppTest.Utility
             return mock;
         }
 
-        public static Mock<IPaymentCard> GetIPaymentCardMock(string cardNumber, DateTime issued, bool suspended)
+        public static Mock<IPaymentCard> GetIPaymentCardMock(string cardNumber, DateTime issued, bool suspended, IAccount account)
         {
             var mock = new Mock<IPaymentCard>();
-            mock.SetupGet(x => x.AccountId).Returns(LastCardId++);
             mock.SetupGet(x => x.CardNumber).Returns(cardNumber);
-            mock.SetupGet(x => x.Issued).Returns(suspended);
-            mock.SetupGet(x => x.Suspended).Returns(LastClientId++);
+            mock.SetupGet(x => x.Issued).Returns(issued);
+            mock.SetupGet(x => x.paymentCardId).Returns(LastCardId++);
+            mock.SetupGet(x => x.AccountId).Returns(account.AccountId);
             return mock;
         }
     }

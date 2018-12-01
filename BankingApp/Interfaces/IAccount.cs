@@ -11,7 +11,7 @@ namespace BankingApp.Interfaces
 
         bool Virtual { get; }
 
-        string AccountNumber { get; set; }
+        string AccountNumber { get; }
 
         DateTime Opened { get; }
 

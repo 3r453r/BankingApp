@@ -18,6 +18,8 @@ namespace BankingApp.Interfaces
 
         DateTime? Deleted { get; set; }
 
+        long? PersonId { get; set; }
+
         void OpenAccount(IAccount account);
 
         void CloseAccount(IAccount account);

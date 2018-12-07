@@ -24,9 +24,18 @@ namespace BankingAppMemoryPersistence.Repositories
 
         private List<IPerson> people = new List<IPerson>();
 
-        public void Add(IPerson person) => people.Add(person);
+        public IPerson Add(IPerson person)
+        {
+            people.Add(person);
+            return person;
+        }
 
         public void Remove(IPerson person) => people.Remove(person);
+
+        public void Save(IPerson t)
+        {
+            throw new System.NotImplementedException();
+        }
 
         public IQueryable<IPerson> Items => people.AsQueryable();
     }

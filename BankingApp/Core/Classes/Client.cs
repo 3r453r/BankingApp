@@ -21,6 +21,7 @@ namespace BankingApp.Classes
         public DateTime Created { get => _client.Created; }
 
         public DateTime? Deleted { get => _client.Deleted; set => _client.Deleted = value; }
+        public long? PersonId { get => _client.PersonId; set => _client.PersonId = value; }
 
         internal Client(IClient client)
         {

@@ -9,9 +9,17 @@ namespace BankingAppMemoryPersistence.Repositories
     {
         private List<IClient> clients = new List<IClient>();
 
-        public void Add(IClient client) => clients.Add(client);
+        public IClient Add(IClient client)
+        {
+            clients.Add(client);
+            return client;
+        } 
 
         public void Remove(IClient client) => clients.Remove(client);
+
+        public void Save(IClient t)
+        {
+        }
 
         public IQueryable<IClient> Items => clients.AsQueryable();
     }

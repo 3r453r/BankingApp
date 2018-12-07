@@ -18,7 +18,6 @@ namespace BankingAppTest.Utility
             return new IndividualClient(
                 MockProvider.GetIClientMock(active, created, deleted).Object
                 , MockProvider.GetIPersonMock(dateOfBirth, deceased, firstName, lastName, pesel, nip).Object
-                , persistenceProvider
                 );
         }
 
@@ -29,7 +28,6 @@ namespace BankingAppTest.Utility
             return new IndividualClient(
                 MockProvider.GetIClientMock(active, DateTime.Now, deleted).Object
                 , MockProvider.GetIPersonMock(DateTime.MinValue, deceased, firstName, lastName, pesel, nip).Object
-                , persistenceProvider
                 );
         }
 

@@ -11,9 +11,17 @@ namespace BankingAppMemoryPersistence.Repositories
     {
         private List<IAccount> accounts = new List<IAccount>();
 
-        public void Add(IAccount account) => accounts.Add(account);
+        public IAccount Add(IAccount account)
+        {
+            accounts.Add(account);
+            return account;
+        }
 
         public void Remove(IAccount account) => accounts.Remove(account);
+
+        public void Save(IAccount t)
+        {
+        }
 
         public IQueryable<IAccount> Items => accounts.AsQueryable();
     }

@@ -9,5 +9,7 @@ namespace BankingApp.UI
         IndividualClient CreateIndividualClient(PersonData data);
 
         CheckingAccount CreateCheckingAccount(IEnumerable<Client> owners);
+
+        IndividualClient FindIndividualClient(ClientData clientData, PersonData personData);
     }
 }

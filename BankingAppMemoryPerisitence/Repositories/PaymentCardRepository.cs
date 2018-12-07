@@ -11,9 +11,17 @@ namespace BankingAppMemoryPersistence.Repositories
     {
         private List<IPaymentCard> paymentCards = new List<IPaymentCard>();
 
-        public void Add(IPaymentCard paymentCard) => paymentCards.Add(paymentCard);
+        public IPaymentCard Add(IPaymentCard paymentCard)
+        {
+            paymentCards.Add(paymentCard);
+            return paymentCard;
+        }
 
         public void Remove(IPaymentCard paymentCard) => paymentCards.Remove(paymentCard);
+
+        public void Save(IPaymentCard t)
+        {
+        }
 
         public IQueryable<IPaymentCard> Items => paymentCards.AsQueryable();
     }

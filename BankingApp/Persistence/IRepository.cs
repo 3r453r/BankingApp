@@ -9,8 +9,10 @@ namespace BankingApp.Persistence
     {
         IQueryable<T> Items { get; }
 
-        void Add(T t);
+        T Add(T t);
 
-        void Remove(T t);        
+        void Remove(T t);
+
+        void Save(T t);
     }
 }

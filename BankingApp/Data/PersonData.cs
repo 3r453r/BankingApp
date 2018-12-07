@@ -6,14 +6,12 @@ namespace BankingApp.Data
 {
     public struct PersonData
     {
-        string FirstName;
-
-        string LastName;
-
-        DateTime DateOfBirth;
-
-        string Pesel;
-
-        string Nip;
+        public string FirstName;
+        public string LastName;
+        public DateTime? DateOfBirth;
+        public string Pesel;
+        public string Nip;
+        public bool? Deceased;
+        public long? personId;
     }
 }

@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BankingAppMemoryPerisitence\BankingAppMemoryPerisitence.csproj" />
     <ProjectReference Include="..\BankingApp\BankingApp.csproj" />
   </ItemGroup>
 

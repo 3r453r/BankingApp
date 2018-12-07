@@ -7,12 +7,6 @@ namespace BankingApp.Classes
 {
     public class CheckingAccount : Account
     {
-        #region StaticProperies
-        #endregion
-
-        #region StaticMethods
-        #endregion
-
         #region Constructors
         public CheckingAccount(string accountNumber, List<IClient> owners, DateTime opened, DateTime? closed)
         {

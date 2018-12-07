@@ -1,32 +1,30 @@
-﻿using BankingApp.Interfaces;
+﻿using BankingApp.Configuration;
+using BankingApp.Interfaces;
+using BankingApp.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
 using System.Transactions;
 
 namespace BankingApp.Classes
 {
     public abstract class Client : IClient
     {
-        protected List<IAccount> Accounts { get; set; }
+        protected IPersistenceProvider persistence = BankingAppConfig.PersistenceProvider;
 
-        public bool Active { get; protected set; }
+        private IClient _client;
 
-        public long ClientId { get; protected set; }
+        public bool Active { get => _client.Active; set => _client.Active = value; }
 
-        public DateTime Created { get; protected set; }
+        public long ClientId { get => _client.ClientId; }
 
-        public DateTime? Deleted { get; protected set; }
+        public DateTime Created { get => _client.Created; }
 
-        public Client(IClient client)
+        public DateTime? Deleted { get => _client.Deleted; set => _client.Deleted = value; }
+
+        internal Client(IClient client)
         {
-            Accounts = client.GetAccounts().ToList();
-            Created = client.Created;
-            Deleted = client.Deleted;
-            Active = client.Active;
-            ClientId = client.ClientId;
+            _client = client;
         }
 
         public void AddCard(IAccount account, IPaymentCard card)
@@ -40,7 +38,7 @@ namespace BankingApp.Classes
         {
             using (var scope = new TransactionScope())
             {
-                foreach (var account in Accounts)
+                foreach (var account in GetAccounts())
                 {
                     CloseAccount(account);
                 }
@@ -49,14 +47,16 @@ namespace BankingApp.Classes
                
         }
 
-        public IEnumerable<IAccount> GetAccounts() => Accounts;
+        public IEnumerable<IAccount> GetAccounts() => from account in persistence.GetAccountRepository().Items
+                                                      where account.GetOwners().Contains(this)
+                                                      select account;
 
-        public IEnumerable<IPaymentCard> GetPaymentCards() => Accounts.SelectMany(a => a.GetCards());
+        public IEnumerable<IPaymentCard> GetPaymentCards() => GetAccounts().SelectMany(a => a.GetCards());
 
         public void OpenAccount(IAccount account)
         {
             account.AddOwner(this);
-            Accounts.Add(account);
+            persistence.GetAccountRepository().Add(account);
         }
 
         public void CloseAccount(IAccount account)

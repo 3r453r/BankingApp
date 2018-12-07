@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingApp", "BankingApp\BankingApp.csproj", "{9660BE04-0E99-4F0D-922C-CCC66889180D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingApp", "BankingApp\BankingApp.csproj", "{9660BE04-0E99-4F0D-922C-CCC66889180D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAppTest", "BankingAppTest\BankingAppTest.csproj", "{6E3138A2-5557-43E5-B1B6-F40910E7B713}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingAppTest", "BankingAppTest\BankingAppTest.csproj", "{6E3138A2-5557-43E5-B1B6-F40910E7B713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAppMemoryPerisitence", "BankingAppMemoryPerisitence\BankingAppMemoryPerisitence.csproj", "{E141B5BC-6E08-4964-BF89-491838657E48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAppConsole", "BankingAppConsole\BankingAppConsole.csproj", "{F49EFE5C-0543-418F-A977-4D0AD2F9412D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{6E3138A2-5557-43E5-B1B6-F40910E7B713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E3138A2-5557-43E5-B1B6-F40910E7B713}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E3138A2-5557-43E5-B1B6-F40910E7B713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E141B5BC-6E08-4964-BF89-491838657E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E141B5BC-6E08-4964-BF89-491838657E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E141B5BC-6E08-4964-BF89-491838657E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E141B5BC-6E08-4964-BF89-491838657E48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F49EFE5C-0543-418F-A977-4D0AD2F9412D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F49EFE5C-0543-418F-A977-4D0AD2F9412D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F49EFE5C-0543-418F-A977-4D0AD2F9412D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F49EFE5C-0543-418F-A977-4D0AD2F9412D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

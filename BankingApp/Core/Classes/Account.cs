@@ -12,6 +12,8 @@ namespace BankingApp.Classes
 
         public bool Virtual { get; protected set; }
 
+        public decimal Balance { get; }
+
         public string AccountNumber { get; set; }
 
         public DateTime Opened { get; protected set; }

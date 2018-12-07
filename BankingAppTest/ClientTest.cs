@@ -52,13 +52,5 @@ namespace BankingAppTest
             client.CloseAccount(account);
             Assert.DoesNotContain(NewClient, account.GetOwners());
         }
-
-        [Fact]
-        public void CardCanBeAddedOnlyToClientAccount()
-        {
-            var account = new CheckingAccount("1", DateTime.Now, null);
-            var client = NewClient;
-            client.AddCard(account,)
-        }
     }
 }

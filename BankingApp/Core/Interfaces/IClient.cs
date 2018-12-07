@@ -10,13 +10,13 @@ namespace BankingApp.Interfaces
 
         IEnumerable<IPaymentCard> GetPaymentCards();
 
-        bool Active { get; }
+        bool Active { get; set; }
 
         long ClientId { get; }
 
         DateTime Created { get; }
 
-        DateTime? Deleted { get; }
+        DateTime? Deleted { get; set; }
 
         void OpenAccount(IAccount account);
 

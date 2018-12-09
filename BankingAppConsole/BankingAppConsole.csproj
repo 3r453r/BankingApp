@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BankingAppEFCorePersistence\BankingAppEFCorePersistence.csproj" />
     <ProjectReference Include="..\BankingAppMemoryPerisitence\BankingAppMemoryPerisitence.csproj" />
     <ProjectReference Include="..\BankingApp\BankingApp.csproj" />
   </ItemGroup>

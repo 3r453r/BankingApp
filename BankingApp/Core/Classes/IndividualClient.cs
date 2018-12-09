@@ -8,7 +8,7 @@ namespace BankingApp.Classes
     public class IndividualClient : Client, IPerson
     {
         #region Constructors
-        public IndividualClient(IClient client, IPerson person) : base(client)
+        internal IndividualClient(IClient client, IPerson person) : base(client)
         {
             Documents = person.GetDocuments();
             this.person = person;
@@ -30,9 +30,9 @@ namespace BankingApp.Classes
 
         public string Nip { get => person.Nip; set => person.Nip = value; }
 
-        public long PersonId { get; }
-
         public bool Deceased { get => person.Deceased; set => person.Deceased = value; }
+
+        long IPerson.PersonId { get => person.PersonId; }
 
         #endregion
 

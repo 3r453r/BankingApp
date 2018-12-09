@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using BankingApp.Classes;
+using BankingApp.Data;
 using BankingApp.Interfaces;
+using BankingApp.UI;
 using BankingAppMemoryPerisitence;
 using Moq;
 
@@ -10,25 +12,11 @@ namespace BankingAppTest.Utility
     public static class ClientFactory
     {
         private static MemoryPeristenceProvider persistenceProvider = new MemoryPeristenceProvider();
+        private static EmployeeActions employeeActions = new EmployeeActions();
 
-        public static IndividualClient GetIndividualClient(DateTime dateOfBirth, DateTime created, DateTime? deleted = null,
-            bool active = true, bool deceased = false,
-            string firstName = "A", string lastName = "B", string pesel = "1", string nip = "1")
+        public static IndividualClient GetIndividualClient(PersonData data)
         {
-            return new IndividualClient(
-                MockProvider.GetIClientMock(active, created, deleted).Object
-                , MockProvider.GetIPersonMock(dateOfBirth, deceased, firstName, lastName, pesel, nip).Object
-                );
-        }
-
-        public static IndividualClient GetIndividualClient(DateTime? deleted = null,
-            bool active = true, bool deceased = false,
-            string firstName = "A", string lastName = "B", string pesel = "1", string nip = "1")
-        {
-            return new IndividualClient(
-                MockProvider.GetIClientMock(active, DateTime.Now, deleted).Object
-                , MockProvider.GetIPersonMock(DateTime.MinValue, deceased, firstName, lastName, pesel, nip).Object
-                );
+            return employeeActions.CreateIndividualClient(data);
         }
 
         public static Client GetClient(DateTime created, List<IAccount> accounts = null, DateTime? deleted = null, bool active = true)

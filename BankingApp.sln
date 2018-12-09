@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingApp", "BankingApp\Ba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingAppTest", "BankingAppTest\BankingAppTest.csproj", "{6E3138A2-5557-43E5-B1B6-F40910E7B713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAppMemoryPerisitence", "BankingAppMemoryPerisitence\BankingAppMemoryPerisitence.csproj", "{E141B5BC-6E08-4964-BF89-491838657E48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingAppMemoryPerisitence", "BankingAppMemoryPerisitence\BankingAppMemoryPerisitence.csproj", "{E141B5BC-6E08-4964-BF89-491838657E48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAppConsole", "BankingAppConsole\BankingAppConsole.csproj", "{F49EFE5C-0543-418F-A977-4D0AD2F9412D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingAppConsole", "BankingAppConsole\BankingAppConsole.csproj", "{F49EFE5C-0543-418F-A977-4D0AD2F9412D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAppEFCorePersistence", "BankingAppEFCorePersistence\BankingAppEFCorePersistence.csproj", "{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F49EFE5C-0543-418F-A977-4D0AD2F9412D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F49EFE5C-0543-418F-A977-4D0AD2F9412D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F49EFE5C-0543-418F-A977-4D0AD2F9412D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

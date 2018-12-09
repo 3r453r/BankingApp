@@ -10,6 +10,8 @@ namespace BankingApp.UI
 
         CheckingAccount CreateCheckingAccount(IEnumerable<Client> owners);
 
-        IndividualClient FindIndividualClient(ClientData clientData, PersonData personData);
+        IndividualClient FindIndividualClient(ClientData clientData);
+
+        IndividualClient FindIndividualClient(PersonData personData);
     }
 }

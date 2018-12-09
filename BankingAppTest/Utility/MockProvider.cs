@@ -11,6 +11,7 @@ namespace BankingAppTest.Utility
         private static long LastClientId = 1;
         private static long LastPersonId = 1;
         private static long LastCardId = 1;
+        private static long LastAccountId = 1;
 
         public static Mock<IClient> GetIClientMock(bool active, DateTime created, DateTime? deleted)
         {
@@ -42,6 +43,18 @@ namespace BankingAppTest.Utility
             mock.SetupGet(x => x.Issued).Returns(issued);
             mock.SetupGet(x => x.paymentCardId).Returns(LastCardId++);
             mock.SetupGet(x => x.AccountId).Returns(account.AccountId);
+            return mock;
+        }
+
+        public static Mock<IAccount> GetIAccountMock(string accountNumber, decimal balance, bool isVirtual, IAccount account)
+        {
+            var mock = new Mock<IAccount>();
+            mock.SetupGet(x => x.AccountId).Returns(LastAccountId++);
+            mock.SetupGet(x => x.AccountNumber).Returns(accountNumber);
+            mock.SetupGet(x => x.Balance).Returns(balance);
+            mock.SetupGet(x => x.Virtual).Returns(isVirtual);
+            mock.SetupGet(x => x.Closed).Returns((DateTime?)null);
+            mock.SetupGet(x => x.Opened).Returns(DateTime.Now);
             return mock;
         }
     }

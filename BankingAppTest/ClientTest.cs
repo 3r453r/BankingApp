@@ -1,6 +1,8 @@
 ﻿using BankingApp.Classes;
+using BankingApp.UI;
 using BankingAppTest.Utility;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace BankingAppTest
@@ -8,6 +10,7 @@ namespace BankingAppTest
     public class ClientTest
     {
         private Client NewClient => ClientFactory.GetClient();
+        private EmployeeActions employeeActions = new EmployeeActions();
 
         [Fact]
         public void IsClient()
@@ -18,7 +21,7 @@ namespace BankingAppTest
         [Fact]
         public void OpenedAccountIsAddedToAccounts()
         {
-            var account = new CheckingAccount("1", DateTime.Now, null);
+            var account = employeeActions.CreateCheckingAccount(new List<IndividualClient>());
             var client = NewClient;
             client.OpenAccount(account);
             Assert.Contains(account, client.GetAccounts());
@@ -27,7 +30,7 @@ namespace BankingAppTest
         [Fact]
         public void OpenedAccountHasClientAsOwner()
         {
-            var account = new CheckingAccount("1", DateTime.Now, null);
+            var account = employeeActions.CreateCheckingAccount(new List<IndividualClient>());
             var client = NewClient;
             client.OpenAccount(account);
             Assert.Contains(client, account.GetOwners());
@@ -36,7 +39,7 @@ namespace BankingAppTest
         [Fact]
         public void ClosedAccountIsRemovedFromAccounts()
         {
-            var account = new CheckingAccount("1", DateTime.Now, null);
+            var account = employeeActions.CreateCheckingAccount(new List<IndividualClient>());
             var client = NewClient;
             client.OpenAccount(account);
             client.CloseAccount(account);
@@ -46,7 +49,7 @@ namespace BankingAppTest
         [Fact]
         public void ClosedAccountDoesntHaveClientAsOwner()
         {
-            var account = new CheckingAccount("1", DateTime.Now, null);
+            var account = employeeActions.CreateCheckingAccount(new List<IndividualClient>());
             var client = NewClient;
             client.OpenAccount(account);
             client.CloseAccount(account);

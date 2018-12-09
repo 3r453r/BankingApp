@@ -11,15 +11,11 @@ namespace BankingApp.Classes
     public abstract class Client : IClient
     {
         protected IPersistenceProvider persistence = BankingAppConfig.PersistenceProvider;
-
         private IClient _client;
 
         public bool Active { get => _client.Active; set => _client.Active = value; }
-
         public long ClientId { get => _client.ClientId; }
-
         public DateTime Created { get => _client.Created; }
-
         public DateTime? Deleted { get => _client.Deleted; set => _client.Deleted = value; }
         public long? PersonId { get => _client.PersonId; set => _client.PersonId = value; }
 
@@ -30,7 +26,6 @@ namespace BankingApp.Classes
 
         public void AddCard(IAccount account, IPaymentCard card)
         {
-
         }
 
         public void RemoveCard(IAccount account, IPaymentCard card) => throw new NotImplementedException();

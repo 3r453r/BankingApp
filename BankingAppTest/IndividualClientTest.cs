@@ -3,12 +3,14 @@ using BankingApp.Classes;
 using BankingApp.Interfaces;
 using BankingAppTest.Utility;
 using BankingAppTest.IndividualClientTestData;
+using BankingApp.Data;
+using System;
 
 namespace BankingAppTest
 {
     public class IndividualClientTest
     {
-        private IndividualClient NewIndividualClient => ClientFactory.GetIndividualClient();
+        private IndividualClient NewIndividualClient => ClientFactory.GetIndividualClient(GetPersonData());
 
         [Fact]
         public void IsIPerson()
@@ -31,6 +33,18 @@ namespace BankingAppTest
                 Assert.False(c1 == c2);
                 Assert.False(c1.Equals(c2));
             }
+        }
+
+        PersonData GetPersonData()
+        {
+            var data = new PersonData();
+            data.FirstName = "A";
+            data.LastName = "B";
+            data.DateOfBirth = DateTime.Parse("1988-03-26");
+            data.Pesel = "018284";
+            data.Nip = "8173913";
+
+            return data;
         }
     }
 }

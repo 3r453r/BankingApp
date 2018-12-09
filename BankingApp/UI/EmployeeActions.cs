@@ -28,35 +28,84 @@ namespace BankingApp.UI
                 );
         }
 
-        public IndividualClient FindIndividualClient(ClientData clientData, PersonData personData)
+        public IndividualClient FindIndividualClient(PersonData personData)
         {
-            CheckData(clientData, personData);
-
-            var clientRepo = persistence.GetClientRepository();
             var personRepo = persistence.GetPersonRepository();
-            IClient client;
             IPerson person;
-            if (clientData.clientId > 0)
+            if (personData.personId != null)
             {
-                var clientQuery = from c in clientRepo.Items
-                         where c.ClientId == clientData.clientId
-                         select c;
-                client = clientQuery.Single();
-
-                var personQuery = from p in personRepo.Items
-                                  where p.PersonId == client.PersonId
-                                  select p;
-                person = personQuery.Single();
+                person = (from p in personRepo.Items
+                    where p.PersonId == personData.personId
+                    select p
+                    ).Single();
             }
             else
+            {
+                person = BuildPersonQuery(personData, personRepo).Single();
+            }
+
+            var clientRepo = persistence.GetClientRepository();
+            IClient client = (from c in clientRepo.Items
+                              where c.PersonId == person.PersonId
+                              select c
+                              ).Single();
 
             return new IndividualClient(client, person);
         }
 
-        private void CheckData(ClientData clientData, PersonData personData)
+        public IndividualClient FindIndividualClient(ClientData clientData)
         {
-            if (clientData.personId != null && personData.personId != null && clientData.personId != personData.personId)
-                throw new ArgumentException($"client.PersonId({clientData.personId}) != person.PersonId({personData.personId})");
+            var clientRepo = persistence.GetClientRepository();
+            IClient client;
+            if (clientData.clientId != null)
+            {
+                client = (from c in clientRepo.Items
+                          where c.ClientId == clientData.clientId
+                          select c
+                    ).Single();
+            }
+            else if (clientData.personId != null)
+            {
+                var personData = new PersonData();
+                personData.personId = clientData.personId;
+
+                return FindIndividualClient(personData);
+            }
+            else
+            {
+                client = BuildClientQuery(clientData, clientRepo).Single();
+            }
+
+            var personRepo = persistence.GetPersonRepository();
+            IPerson person = (from p in personRepo.Items
+                              where p.PersonId == client.PersonId
+                              select p
+                              ).Single();
+
+            return new IndividualClient(client, person);
+        }
+
+        private IQueryable<IClient> BuildClientQuery(ClientData clientData, IRepository<IClient> clientRepo)
+        {
+            var query = clientRepo.Items;
+
+            if(clientData.active != null) query = query.Where(c => c.Active == clientData.active);
+
+            return query;
+        }
+
+        private IQueryable<IPerson> BuildPersonQuery(PersonData personData, IRepository<IPerson> personRepo)
+        {
+            var query = personRepo.Items;
+
+            if (personData.DateOfBirth != null && personData.DateOfBirth != DateTime.MinValue) query = query.Where(p => p.DateOfBirth == personData.DateOfBirth);
+            if (personData.Deceased != null) query = query.Where(p => p.Deceased == personData.Deceased);
+            if (personData.FirstName != null) query = query.Where(p => p.FirstName == personData.FirstName);
+            if (personData.LastName != null) query = query.Where(p => p.LastName == personData.LastName);
+            if (personData.Nip != null) query = query.Where(p => p.Nip == personData.Nip);
+            if (personData.Pesel != null) query = query.Where(p => p.Pesel == personData.Pesel);
+
+            return query;
         }
     }
 }

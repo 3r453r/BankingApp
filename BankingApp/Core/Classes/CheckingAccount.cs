@@ -8,7 +8,7 @@ namespace BankingApp.Classes
     public class CheckingAccount : Account
     {
         #region Constructors
-        public CheckingAccount(string accountNumber, List<IClient> owners, DateTime opened, DateTime? closed)
+        internal CheckingAccount(string accountNumber, List<IClient> owners, DateTime opened, DateTime? closed)
         {
             AccountNumber = accountNumber;
             Owners = owners;
@@ -17,7 +17,7 @@ namespace BankingApp.Classes
             Virtual = false;
         }
 
-        public CheckingAccount(string accountNumber, DateTime opened, DateTime? closed) : this(accountNumber, new List<IClient>(), opened, closed) { }
+        internal CheckingAccount(string accountNumber, DateTime opened, DateTime? closed) : this(accountNumber, new List<IClient>(), opened, closed) { }
         #endregion
 
         #region Properties

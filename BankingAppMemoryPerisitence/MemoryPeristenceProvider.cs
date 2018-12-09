@@ -6,7 +6,7 @@ namespace BankingAppMemoryPerisitence
 {
     public class MemoryPeristenceProvider : IPersistenceProvider
     {
-        public IRepository<IClient> GetClientRepository() => new ClientRepository();
+        public IRepository<IClient> GetClientRepository() => ClientRepository.Repository;
 
         public IRepository<IAccount> GetAccountRepository() => new AccountRepository();
 

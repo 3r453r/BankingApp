@@ -8,6 +8,10 @@ namespace BankingAppEFCorePersistence
 {
     public class EFPersistenceProvider : IPersistenceProvider
     {
+        public EFPersistenceProvider(string connectionString)
+        {
+            Configuration.ConnectionString = connectionString;
+        }
         public IRepository<IAccount> GetAccountRepository()
         {
             throw new NotImplementedException();

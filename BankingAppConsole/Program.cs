@@ -5,6 +5,7 @@ using BankingAppMemoryPerisitence;
 using BankingAppEFCorePersistence;
 using Newtonsoft.Json;
 using System;
+using System.Configuration;
 
 namespace BankingAppConsole
 {
@@ -13,7 +14,7 @@ namespace BankingAppConsole
         static void Main(string[] args)
         {
             //new BankingAppConfig().SetPersistenceProvider(new MemoryPeristenceProvider());
-            new BankingAppConfig().SetPersistenceProvider(new EFPersistenceProvider());
+            new BankingAppConfig().SetPersistenceProvider(new EFPersistenceProvider(ConfigurationManager.ConnectionStrings["BankingAppGetin"].ConnectionString));
             var employeeActions = new EmployeeActions();
 
             while(true)

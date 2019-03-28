@@ -16,24 +16,27 @@ namespace BankingAppEFCorePersistence
         public string Nip { get; set; }
         public bool Deceased { get; set; }
 
-        public Person(IPerson person)
+        public Person(IPerson person): this(person.FirstName, person.LastName, person.DateOfBirth, person.Pesel, person.Nip, person.Deceased)
         {
-            FirstName = person.FirstName;
-            LastName = person.LastName;
-            DateOfBirth = person.DateOfBirth;
-            Pesel = person.Pesel;
-            Nip = person.Nip;
-            Deceased = person.Deceased;
+        }
+
+        internal Person(string firstName, string lastName, DateTime dateOfBirth, string pesel, string nip, bool deceased)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            DateOfBirth = dateOfBirth;
+            Pesel = pesel;
+            Nip = nip;
+            Deceased = deceased;
         }
 
         public void AddDocument(IIdentificationDocument document)
-        {
-            throw new NotImplementedException();
+        {          
         }
 
         public IEnumerable<IIdentificationDocument> GetDocuments()
         {
-            throw new NotImplementedException();
+            return new IIdentificationDocument[0];
         }
     }
 }

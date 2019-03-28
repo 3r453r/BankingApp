@@ -5,15 +5,26 @@ using System.Text;
 
 namespace BankingAppEFCorePersistence
 {
-    public class BankingAppContext : DbContext
+    internal class BankingAppContext : DbContext
     {
-        DbSet<Person> People;
-        DbSet<Client> Clients;
+        internal static BankingAppContext Context { get; } = new BankingAppContext();
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<Person> People { get; set; }
+        public DbSet<Client> Clients { get; set; }
+
+        private BankingAppContext() : base()
         {
             Database.EnsureDeleted();
-            Database.Migrate();
+            Database.EnsureCreated();
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(Configuration.ConnectionString);
         }
     }
 }

@@ -9,8 +9,7 @@ namespace BankingAppEFCorePersistence
 {
     class ClientRepository : IRepository<IClient>
     {
-        private BankingAppContext context = new BankingAppContext();
-
+        private BankingAppContext context = BankingAppContext.Context;
         public IQueryable<IClient> Items => context.Set<Client>().AsQueryable();
 
         public IClient Add(IClient client)

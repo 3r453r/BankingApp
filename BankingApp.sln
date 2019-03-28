@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingAppMemoryPerisitence
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingAppConsole", "BankingAppConsole\BankingAppConsole.csproj", "{F49EFE5C-0543-418F-A977-4D0AD2F9412D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAppEFCorePersistence", "BankingAppEFCorePersistence\BankingAppEFCorePersistence.csproj", "{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingAppEFCorePersistence", "BankingAppEFCorePersistence\BankingAppEFCorePersistence.csproj", "{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingAppWebApi", "BankingAppWebApi\BankingAppWebApi.csproj", "{24DD0D64-7C89-4D80-8534-8EDFE5666266}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67C6AFB3-7948-487C-9D8E-8EAEF07836DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24DD0D64-7C89-4D80-8534-8EDFE5666266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24DD0D64-7C89-4D80-8534-8EDFE5666266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24DD0D64-7C89-4D80-8534-8EDFE5666266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24DD0D64-7C89-4D80-8534-8EDFE5666266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,45 +16,45 @@ namespace BankingAppEFCorePersistence
         public DateTime Created { get; set; }
         public DateTime? Deleted { get; set; }
 
-        public Client(IClient client)
+        public Client(IClient client) : this(client.Active, client.PersonId)
         {
-            Active = client.Active;
+        }
+
+        internal Client(bool active, long? personId)
+        {
+            Active = active;
+            PersonId = personId;
             Created = DateTime.Now;
         }
 
         public void AddCard(IAccount account, IPaymentCard card)
         {
-            throw new NotImplementedException();
         }
 
         public void CloseAccount(IAccount account)
         {
-            throw new NotImplementedException();
         }
 
         public void Delete()
         {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<IAccount> GetAccounts()
         {
-            throw new NotImplementedException();
+            return new IAccount[0];
         }
 
         public IEnumerable<IPaymentCard> GetPaymentCards()
         {
-            throw new NotImplementedException();
+            return new IPaymentCard[0];
         }
 
         public void OpenAccount(IAccount account)
         {
-            throw new NotImplementedException();
         }
 
         public void RemoveCard(IAccount account, IPaymentCard card)
         {
-            throw new NotImplementedException();
         }
     }
 }

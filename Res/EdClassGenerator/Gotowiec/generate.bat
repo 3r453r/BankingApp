@@ -1,0 +1,2 @@
+dotnet EdClassGenerator.dll "Data Source=FNSTST02\SPRINT;Initial Catalog=GTN_PRD_ED;Integrated Security=True" PP.EF.Data.EdModel A_Case_Process A_Dyspozycja_Transakcyjna
+rem arg[0] = connectionString arg[1] = namespace arg[] = params tableNames

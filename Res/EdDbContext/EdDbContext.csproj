@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B3BD182-658A-4D87-A8CD-3B19CDC0C1F2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BizContextTest</RootNamespace>
+    <AssemblyName>EdContext</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Applications.Core.Common">
+      <HintPath>..\..\..\Res\Common\Applications.Core.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Applications.Core.Server">
+      <HintPath>..\..\..\Res\PivotalServer\Applications.Core.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\Res\PivotalServer\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\Res\PivotalServer\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Pivotal.Core">
+      <HintPath>..\..\..\Res\Common\Pivotal.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Pivotal.Core.Common">
+      <HintPath>..\..\..\Res\Common\Pivotal.Core.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AS_Profile_Grupy.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AS_Profile_Grupy_Log.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AS_Profile_Uprawnienia.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AS_Profile_Uprawnienia_Log.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AS_Wlasciciel_Licencji.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AV_BM_Group.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AV_Liczba_Licencji.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AV_Roznice_Uprawnienia.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Case_Process.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Employee_Log.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Employee_Poswiadczenia.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Employee_Poswiadczenia_Lg.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Employee_Profil.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Employee_Profil_Log.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_GrupaRoboczaPracownika_Lg.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Grupa_Robocza_Pracownika.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_PIV_Security_GetEmployeeChangelog_Result.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_PIV_Security_GetEmployeeUprawnieniaChangelog_Result.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_PIV_Security_GetProfileUprawnieniaChangelog_Result.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Team_Member.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Team_Member_Log.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Wniosek_Wideo.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="A_Wniosek_Wideo_Krok.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContextFactory.cs" />
+    <Compile Include="ContextFormTask.cs" />
+    <Compile Include="ContextServiceTask.cs" />
+    <Compile Include="Employee.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_Skills.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_Skills_Log.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities.cs" />
+    <Compile Include="EdModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EdModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EdModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EdModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EdModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RSys_Last_Id.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>EdModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="EdModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EdModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="EdModel.edmx.diagram">
+      <DependentUpon>EdModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EdModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EdModel.Context.cs</LastGenOutput>
+      <DependentUpon>EdModel.edmx</DependentUpon>
+      <CustomToolNamespace>EdDbContext</CustomToolNamespace>
+    </Content>
+    <Content Include="EdModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EdModel.edmx</DependentUpon>
+      <LastGenOutput>EdModel.cs</LastGenOutput>
+      <CustomToolNamespace>EdDbContext</CustomToolNamespace>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PP.EF.Server.Utility\PP.EF.Server.Utility.csproj">
+      <Project>{F29A9F46-4AEC-4C0F-9AA1-D53C61EBBDB2}</Project>
+      <Name>PP.EF.Server.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

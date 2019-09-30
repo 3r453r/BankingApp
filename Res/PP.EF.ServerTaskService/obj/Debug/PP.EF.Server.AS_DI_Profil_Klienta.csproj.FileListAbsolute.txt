@@ -1,0 +1,7 @@
+C:\Repozytoria\fenix\BuildArtifacts\PP.EF.Server.AS_DI_Profil_Klienta.dll
+C:\Repozytoria\fenix\BuildArtifacts\PP.EF.Server.AS_DI_Profil_Klienta.pdb
+C:\Repozytoria\fenix\Src\ServerTask\PP.EF.Server.AS_DI_Profil_Klienta\obj\Debug\PP.EF.Server.AS_DI_Profil_Klienta.csproj.CoreCompileInputs.cache
+C:\Repozytoria\fenix\Src\ServerTask\PP.EF.Server.AS_DI_Profil_Klienta\obj\Debug\PP.EF.Server.AS_DI_Profil_Klienta.dll
+C:\Repozytoria\fenix\Src\ServerTask\PP.EF.Server.AS_DI_Profil_Klienta\obj\Debug\PP.EF.Server.AS_DI_Profil_Klienta.pdb
+C:\Repozytoria\fenix\Src\ServerTask\PP.EF.Server.AS_DI_Profil_Klienta\obj\Debug\PP.EF.Server.AS_DI_Profil_Klienta.csprojAssemblyReference.cache
+C:\Repozytoria\fenix\Src\ServerTask\PP.EF.Server.AS_DI_Profil_Klienta\obj\Debug\PP.EF.Server.AS_DI_Profil_Klienta.csproj.CopyComplete

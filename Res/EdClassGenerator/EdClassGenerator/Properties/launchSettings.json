@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EdClassGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "\"Data Source=FNSTST02\\SPRINT;Initial Catalog=GTN_PRD_ED;Integrated Security=True\" PP.EF.Data.EdModel all"
+    }
+  }
+}

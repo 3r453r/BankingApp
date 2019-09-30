@@ -1,0 +1,5 @@
+C:\Repozytoria\fenix\BuildArtifacts\PP.EF.ServerTaskService.dll
+C:\Repozytoria\fenix\Src\ServerTask\PP.EF.ServerTaskService\obj\Release\PP.EF.ServerTaskService.csprojAssemblyReference.cache
+C:\Repozytoria\fenix\Src\ServerTask\PP.EF.ServerTaskService\obj\Release\PP.EF.ServerTaskService.csproj.CoreCompileInputs.cache
+C:\Repozytoria\fenix\Src\ServerTask\PP.EF.ServerTaskService\obj\Release\PP.EF.ServerTaskService.csproj.CopyComplete
+C:\Repozytoria\fenix\Src\ServerTask\PP.EF.ServerTaskService\obj\Release\PP.EF.ServerTaskService.dll

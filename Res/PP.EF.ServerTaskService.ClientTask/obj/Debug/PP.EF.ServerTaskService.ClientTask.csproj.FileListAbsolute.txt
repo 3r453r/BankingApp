@@ -1,0 +1,7 @@
+C:\Repozytoria\fenix\BuildArtifacts\PP.EF.ServerTaskService.ClientTask.dll
+C:\Repozytoria\fenix\BuildArtifacts\PP.EF.ServerTaskService.ClientTask.pdb
+C:\Repozytoria\fenix\Src\ClientTask\PP.EF.ServerTaskService.ClientTask\obj\Debug\PP.EF.ServerTaskService.ClientTask.csprojAssemblyReference.cache
+C:\Repozytoria\fenix\Src\ClientTask\PP.EF.ServerTaskService.ClientTask\obj\Debug\PP.EF.ServerTaskService.ClientTask.csproj.CoreCompileInputs.cache
+C:\Repozytoria\fenix\Src\ClientTask\PP.EF.ServerTaskService.ClientTask\obj\Debug\PP.EF.ServerTaskService.ClientTask.csproj.CopyComplete
+C:\Repozytoria\fenix\Src\ClientTask\PP.EF.ServerTaskService.ClientTask\obj\Debug\PP.EF.ServerTaskService.ClientTask.dll
+C:\Repozytoria\fenix\Src\ClientTask\PP.EF.ServerTaskService.ClientTask\obj\Debug\PP.EF.ServerTaskService.ClientTask.pdb

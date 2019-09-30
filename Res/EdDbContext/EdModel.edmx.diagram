@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4910cb95e49346e2a921b31c05cd935e" Name="Employee">
+        <EntityTypeShape EntityType="EdModel.A_Employee_Profil" Width="2" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EdModel.AS_Profile_Grupy" Width="1.5" PointX="3.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EdModel.AS_Profile_Uprawnienia" Width="2.25" PointX="5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EdModel.Employee" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EdModel.RSys_Last_Id" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="EdModel.EmployeeA_Employee_Profil" />
+        <AssociationConnector Association="EdModel.AS_Profile_UprawnieniaAS_Profile_Grupy" />
+        <AssociationConnector Association="EdModel.AS_Profile_UprawnieniaA_Employee_Profil" />
+        <EntityTypeShape EntityType="EdModel.AV_BM_Group" Width="1.5" PointX="4.625" PointY="4.875" />
+        <AssociationConnector Association="EdModel.AV_BM_GroupAS_Profile_Grupy" />
+        <EntityTypeShape EntityType="EdModel.A_Employee_Log" Width="1.875" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EdModel.A_Employee_Poswiadczenia_Lg" Width="2.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="EdModel.A_Employee_Profil_Log" Width="2" PointX="10" PointY="0.75" />
+        <EntityTypeShape EntityType="EdModel.A_GrupaRoboczaPracownika_Lg" Width="2.625" PointX="9.375" PointY="4.75" />
+        <EntityTypeShape EntityType="EdModel.A_Team_Member_Log" Width="2.125" PointX="9.375" PointY="8.75" />
+        <EntityTypeShape EntityType="EdModel.AS_Profile_Grupy_Log" Width="2.75" PointX="6.375" PointY="9.625" />
+        <EntityTypeShape EntityType="EdModel.AS_Profile_Uprawnienia_Log" Width="2.5" PointX="12.5" PointY="0.75" />
+        <EntityTypeShape EntityType="EdModel.Employee_Skills_Log" Width="2.625" PointX="13" PointY="8" />
+        <EntityTypeShape EntityType="EdModel.A_Employee_Poswiadczenia" Width="1.5" PointX="12.375" PointY="12.75" />
+        <EntityTypeShape EntityType="EdModel.A_Grupa_Robocza_Pracownika" Width="1.5" PointX="3.375" PointY="13.75" />
+        <EntityTypeShape EntityType="EdModel.A_Team_Member" Width="1.5" PointX="5.375" PointY="13.75" />
+        <EntityTypeShape EntityType="EdModel.Employee_Skills" Width="1.5" PointX="7.375" PointY="13.75" />
+        <AssociationConnector Association="EdModel.EmployeeEmployee_Skills" />
+        <AssociationConnector Association="EdModel.EmployeeA_Team_Member" />
+        <AssociationConnector Association="EdModel.EmployeeA_Grupa_Robocza_Pracownika" />
+        <AssociationConnector Association="EdModel.EmployeeA_Employee_Poswiadczenia" />
+        <EntityTypeShape EntityType="EdModel.Users" Width="1.5" PointX="9.375" PointY="13.75" />
+        <EntityTypeShape EntityType="EdModel.AV_Liczba_Licencji" Width="1.5" PointX="14.375" PointY="12.75" />
+        <EntityTypeShape EntityType="EdModel.AS_Wlasciciel_Licencji" Width="1.5" PointX="15.25" PointY="0.75" />
+        <EntityTypeShape EntityType="EdModel.AV_Roznice_Uprawnienia" Width="1.5" PointX="12.375" PointY="4.75" />
+      </Diagram>
+      <Diagram DiagramId="f1cbc54a951d424e8a5d0eebb1f15fcd" Name="Wniosek_Wideo" >
+        <EntityTypeShape EntityType="EdModel.A_Wniosek_Wideo" Width="2.125" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EdModel.A_Wniosek_Wideo_Krok" Width="2.75" PointX="3.25" PointY="0.625" />
+        <AssociationConnector Association="EdModel.A_Wniosek_WideoA_Wniosek_Wideo_Krok" />
+        <EntityTypeShape EntityType="EdModel.A_Case_Process" Width="1.5" PointX="7.5" PointY="0.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
